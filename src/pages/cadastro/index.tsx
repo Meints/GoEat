@@ -1,20 +1,20 @@
 import React from "react";
-import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, TextInput, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";  
 import { style } from "./styles";
-import Logo from "../../assets/logo/logo.png";
 import { MaterialIcons } from "@expo/vector-icons";
 import { themas } from "@/src/global/themes";
-import { useNavigation } from "@react-navigation/native";
+import Logo from "../../assets/logo/logo.png";
 import { propsStack } from "@/src/modules";
 
-export default function Login() {
+export default function Cadastro() {
   const navigation = useNavigation<propsStack>(); 
 
   return (
     <View style={style.container}>
       <View style={style.boxTop}>
         <Image source={Logo} style={style.logo} resizeMode="contain" />
-        <Text style={style.text}>Bem vindo</Text>
+        <Text style={style.text}>CADASTRE-SE</Text>
       </View>
       <View style={style.boxMid}>
         <Text style={style.titleInput}>ENDEREÇO DE EMAIL</Text>
@@ -28,16 +28,21 @@ export default function Login() {
           <TextInput style={style.input} />
           <MaterialIcons name="remove-red-eye" size={30} color={themas.colors.gray} />
         </View>
+        <Text style={style.titleInput}>REPETIR SENHA</Text>
+        <View style={style.boxInput}>
+          <TextInput style={style.input} />
+          <MaterialIcons name="remove-red-eye" size={30} color={themas.colors.gray} />
+        </View>
       </View>
       <View style={style.boxBotton}>
         <TouchableOpacity style={style.button}>
-          <Text style={style.textButton}>ENTRAR</Text>
+          <Text style={style.textButton}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>
       <Text style={style.textBottom}>
-        Não tem conta?
-        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}> 
-          <Text style={[style.textBottom, { color: themas.colors.primary }]}>Crie Agora</Text>
+        Já possui uma senha? 
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}> 
+          <Text style={[style.textBottom, { color: themas.colors.primary }]}>Va para tela de login</Text>
         </TouchableOpacity>
       </Text>
     </View>
