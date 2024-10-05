@@ -22,9 +22,8 @@ export const style = StyleSheet.create({
   boxBotton:{
     height:Dimensions.get('window').height/3,
     width:'100%',
-    alignItems: 'center',  
-  
-
+    alignItems: 'center', 
+    padding : 100, 
   },logo:{
     width: 1000, height: 100 
   },text:{
@@ -34,7 +33,7 @@ export const style = StyleSheet.create({
   },titleInput:{
     marginLeft:5,
     color:themas.colors.gray,
-    marginTop : 20
+    margin : 10
   },boxInput:{
     width:'100%',
     height:40,

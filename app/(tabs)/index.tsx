@@ -1,14 +1,20 @@
-import Login from '@/src/pages/login';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'; 
+import { createStackNavigator } from '@react-navigation/stack';  
+import Cadastro from '@/src/pages/cadastro';  
+import Login from '@/src/pages/login'; 
+import { propsNavigationStack } from '@/src/modules';
 
+const Stack = createStackNavigator<propsNavigationStack>(); 
 
 export default function App() {
   return (
-      <Login/>
+    <NavigationContainer independent={true}> 
+      <Stack.Navigator initialRouteName="Login">  
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />  
+        <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} /> 
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-});
