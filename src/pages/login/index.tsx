@@ -14,32 +14,30 @@ export default function Login() {
     <View style={style.container}>
       <View style={style.boxTop}>
         <Image source={Logo} style={style.logo} resizeMode="contain" />
-        <Text style={style.text}>Bem vindo</Text>
+        <Text style={style.text}>Login</Text>
       </View>
       <View style={style.boxMid}>
-        <Text style={style.titleInput}>ENDEREÇO DE EMAIL</Text>
+        <Text style={style.titleInput}>Endereço de E-mail</Text>
         <View style={style.boxInput}>
           <TextInput style={style.input} />
-          <MaterialIcons name="email" size={30} color={themas.colors.gray} />
+          <MaterialIcons name="email" size={18} color={themas.colors.gray} />
         </View>
 
-        <Text style={style.titleInput}>SENHA</Text>
+        <Text style={style.titleInput}>Senha</Text>
         <View style={style.boxInput}>
           <TextInput style={style.input} />
-          <MaterialIcons name="remove-red-eye" size={30} color={themas.colors.gray} />
+          <MaterialIcons name="remove-red-eye" size={18} color={themas.colors.gray} />
         </View>
       </View>
       <View style={style.boxBotton}>
         <TouchableOpacity style={style.button}>
           <Text style={style.textButton}>ENTRAR</Text>
         </TouchableOpacity>
+        <Text style={style.textBottom}>
+          Não tem conta?{' '}
+            <Text style={[style.textBottom, { color: themas.colors.primary }]} onPress={() => navigation.navigate('Cadastro')}>Crie Agora</Text>
+        </Text>
       </View>
-      <Text style={style.textBottom}>
-        Não tem conta?
-        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}> 
-          <Text style={[style.textBottom, { color: themas.colors.primary }]}>Crie Agora</Text>
-        </TouchableOpacity>
-      </Text>
     </View>
   );
 }

@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { themas } from "../../global/themes";
 export const style = StyleSheet.create({
   container: {
@@ -7,23 +7,20 @@ export const style = StyleSheet.create({
     justifyContent: "center",
   },
   boxTop: {
-    height: Dimensions.get("window").height / 3,
     //backgroundColor : 'red',
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
   boxMid: {
-    height: Dimensions.get("window").height / 4,
     //backgroundColor : 'green',
     width: "100%",
     paddingHorizontal: 37,
   },
   boxBotton: {
-    height: Dimensions.get("window").height / 3,
+    padding: 30,
     width: "100%",
     alignItems: "center",
-    padding: 200,
   },
   logo: {
     width: 1000,
@@ -32,7 +29,7 @@ export const style = StyleSheet.create({
   text: {
     fontWeight: "bold",
     marginTop: 40,
-    fontSize: 18,
+    fontSize: 30,
   },
   titleInput: {
     marginLeft: 5,
@@ -59,6 +56,7 @@ export const style = StyleSheet.create({
     borderBlockColor: themas.colors.ligthGray,
   },
   button: {
+    marginBottom:60,
     width: 280,
     height: 50,
     alignItems: "center",
