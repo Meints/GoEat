@@ -22,6 +22,11 @@ export default function Cadastro() {
           <TextInput style={style.input} />
           <MaterialIcons name="email" size={30} color={themas.colors.gray} />
         </View>
+        <Text style={style.titleInput}>NOME</Text>
+        <View style={style.boxInput}>
+          <TextInput style={style.input} />
+          <MaterialIcons name="email" size={30} color={themas.colors.gray} />
+        </View>
 
         <Text style={style.titleInput}>SENHA</Text>
         <View style={style.boxInput}>
@@ -35,7 +40,7 @@ export default function Cadastro() {
         </View>
       </View>
       <View style={style.boxBotton}>
-        <TouchableOpacity style={style.button}>
+        <TouchableOpacity style={style.button} onPress={() => navigation.navigate('AlterarPerfil')}>
           <Text style={style.textButton}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>
