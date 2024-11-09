@@ -6,12 +6,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { themas } from "@/src/global/themes";
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from "@/src/modules";
+import Container from "@/src/components/container/Container";
 
 export default function Login() {
   const navigation = useNavigation<propsStack>(); 
 
   return (
-    <View style={style.container}>
+    <Container>
       <View style={style.boxTop}>
         <Image source={Logo} style={style.logo} resizeMode="contain" />
         <Text style={style.text}>Login</Text>
@@ -31,13 +32,13 @@ export default function Login() {
       </View>
       <View style={style.boxBotton}>
         <TouchableOpacity style={style.button}>
-          <Text style={style.textButton}>ENTRAR</Text>
+          <Text style={style.textButton} onPress={() => navigation.navigate('ListagemRestaurantes')}>ENTRAR</Text>
         </TouchableOpacity>
         <Text style={style.textBottom}>
           Não tem conta?{' '}
             <Text style={[style.textBottom, { color: themas.colors.primary }]} onPress={() => navigation.navigate('Cadastro')}>Crie Agora</Text>
         </Text>
       </View>
-    </View>
+    </Container>
   );
 }

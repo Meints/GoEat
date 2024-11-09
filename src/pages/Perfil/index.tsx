@@ -6,7 +6,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { themas } from "@/src/global/themes";
 import { propsStack } from "@/src/modules";
 
-export default function Cadastro() {
+export default function Perfil() {
   const navigation = useNavigation<propsStack>(); 
 
   return (

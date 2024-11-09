@@ -6,12 +6,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { themas } from "@/src/global/themes";
 import Logo from "../../assets/logo/logo.png";
 import { propsStack } from "@/src/modules";
+import Container from "@/src/components/container/Container";
 
 export default function Cadastro() {
   const navigation = useNavigation<propsStack>(); 
 
   return (
-    <View style={style.container}>
+    <Container>
       <View style={style.boxTop}>
         <Image source={Logo} style={style.logo} resizeMode="contain" />
         <Text style={style.text}>Cadastre-se</Text>
@@ -48,6 +49,6 @@ export default function Cadastro() {
             <Text style={[style.textBottom, { color: themas.colors.primary }]} onPress={() => navigation.navigate('Login')}>Va para tela de login</Text>
         </Text>
       </View>
-    </View>
+    </Container>
   );
 }
