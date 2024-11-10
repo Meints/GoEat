@@ -1,4 +1,4 @@
-import React from "react";
+import React = require("react");
 import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
 import { style } from "./styles";
 import Logo from "../../assets/logo/logo.png";

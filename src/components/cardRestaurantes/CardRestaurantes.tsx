@@ -1,28 +1,37 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
+import { Restaurante } from "../../redux/modules/listagem/types";
+import { useNavigation } from "@react-navigation/native";
+import { propsStack } from "@/src/modules";
+import { useAppDispatch } from "@/src/redux/store";
+import { detalhesActions } from "@/src/redux/modules/detalhes/slices";
 
-interface CardProps {
-  nome: string;
-  endereco: string;
-  nota: number;
-  imagem: string;
-}
+const CardRestaurantes = ({ restaurante }: { restaurante: Restaurante }) => {
+  const { name, address, image, rating } = restaurante;
 
-const CardRestaurantes = ({ nome, endereco, nota, imagem }:CardProps) => {
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation<propsStack>(); 
+
   return (
-    <View style={styles.card}>
-      <Image source={{ uri: imagem }} style={styles.imagem} />
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        dispatch(detalhesActions.receiveRestaurante(restaurante));
+        navigation.navigate("Detalhes");
+      }}
+    >
+      <Image source={{ uri: image }} style={styles.imagem} />
       <View style={styles.infoContainer}>
-        <Text style={styles.nome}>{nome}</Text>
+        <Text style={styles.nome}>{name}</Text>
         <View style={styles.enderecoContainer}>
           <MaterialIcons name="location-on" size={18} color="#444" />
-          <Text style={styles.endereco}>{endereco}</Text>
+          <Text style={styles.endereco}>{address}</Text>
         </View>
-        <Text style={styles.nota}>Nota: {nota}⭐</Text>
+        <Text style={styles.nota}>Nota: {`${rating}`}⭐</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
