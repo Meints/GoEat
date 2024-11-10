@@ -5,6 +5,7 @@ export type propsNavigationStack = {
   Cadastro : undefined
   AlterarPerfil : undefined
   ListagemRestaurantes : undefined
+  Detalhes: undefined
 }
 
 export type propsStack = NativeStackNavigationProp<propsNavigationStack>
