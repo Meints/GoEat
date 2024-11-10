@@ -77,7 +77,7 @@ export default function Detalhes() {
       <TouchableOpacity
         style={style.button}
         onPress={() => {
-          console.log("Bando de animal");
+          console.log("teste");
         }}
       >
         <Text style={{ color: "white" }}>{"Reservar"}</Text>
