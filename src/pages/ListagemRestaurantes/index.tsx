@@ -1,25 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { propsStack } from "@/src/modules";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import CardRestaurantes from "@/src/components/cardRestaurantes/CardRestaurantes";
-import { Restaurante } from "../../redux/modules/listagem/types";
-import { useAppSelector } from "@/src/redux/store";
-
-const DATA: Restaurante[] = [];
+import { db } from "@/FirebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function ListagemRestaurantes() {
-  const { restaurantes } = useAppSelector((state) => state.listagem);
-  const navigation = useNavigation<propsStack>();
+  const [restaurantes, setRestaurantes] = useState<any[]>([]);
+  const navigation = useNavigation();
+
+  const fetchRestaurantes = async () => {
+    try {
+      const restaurantesRef = collection(db, "Restaurante");
+      const querySnapshot = await getDocs(restaurantesRef);
+      const restaurantesList: any[] = [];
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        restaurantesList.push({
+          name: data.Nome,
+          address: data.Endereco,
+          image: data.imagem,
+          rating: data.nota,
+          horario: data.horario_funcionamento,
+          availableTables: data.numero_mesas,
+          description: data.sobre,
+          restaurante_id: data.restaurante_id,
+        });
+      });
+
+      setRestaurantes(restaurantesList);
+    } catch (error) {
+      console.error("Erro ao buscar restaurantes: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRestaurantes();
+  }, []);
 
   return (
     <View>
-      <FlatList
-        data={restaurantes}
-        renderItem={({ index, item }) => (
-          <CardRestaurantes restaurante={item} />
-        )}
-      />
+      {restaurantes.length === 0 ? (
+        <Text>Carregando Restaurantes...</Text>
+      ) : (
+        <FlatList
+          data={restaurantes}
+          renderItem={({ item }) => <CardRestaurantes restaurante={item} />}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      )}
     </View>
   );
 }
