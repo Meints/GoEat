@@ -19,7 +19,7 @@ export const style = StyleSheet.create({
   rating: {
     display: "flex",
     flexDirection: "row",
-    marginRight: 5
+    marginRight: 5,
   },
   imageContainer: {
     width: "100%",
@@ -47,15 +47,14 @@ export const style = StyleSheet.create({
   },
   description: {
     paddingHorizontal: 20,
-    marginTop: 10
+    marginTop: 10,
   },
   addressContainer: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "center",
     paddingHorizontal: 20,
-    marginTop: 0,
+    marginTop: 10,
   },
   tables: {
     paddingHorizontal: 20,
@@ -63,5 +62,5 @@ export const style = StyleSheet.create({
   },
   subTitle: {
     fontWeight: "bold",
-  }
+  },
 });

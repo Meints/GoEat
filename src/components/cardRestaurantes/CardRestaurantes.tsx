@@ -9,10 +9,10 @@ import { useAppDispatch } from "@/src/redux/store";
 import { detalhesActions } from "@/src/redux/modules/detalhes/slices";
 
 const CardRestaurantes = ({ restaurante }: { restaurante: Restaurante }) => {
-  const { name, address, image, rating } = restaurante;
+  const { name, address, image, rating, horario } = restaurante;
 
   const dispatch = useAppDispatch();
-  const navigation = useNavigation<propsStack>(); 
+  const navigation = useNavigation<propsStack>();
 
   return (
     <TouchableOpacity
@@ -30,6 +30,7 @@ const CardRestaurantes = ({ restaurante }: { restaurante: Restaurante }) => {
           <Text style={styles.endereco}>{address}</Text>
         </View>
         <Text style={styles.nota}>Nota: {`${rating}`}⭐</Text>
+        <Text style={styles.nota}>Horario de funcionamento :{horario} </Text>
       </View>
     </TouchableOpacity>
   );

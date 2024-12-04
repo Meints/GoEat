@@ -6,8 +6,7 @@ const initialState: DetalhesState = {
   restaurante: {
     name: "",
     address: "",
-    image:
-      "",
+    image: "",
     rating: 0,
     cnpj: "",
     availableTables: 0,
